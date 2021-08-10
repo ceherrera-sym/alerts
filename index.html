@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS  REQUIRED-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- JQUERY REQUIRED -->
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
+
+    <script src="alerts/js/alerts.js"></script>
+    <link rel="stylesheet" href="alerts/css/alerts.css">
+</head>
+
+<body>
+    <div id="container"></div>
+    <div class="card-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <button id="simple" type="button" class="btn btn-primary">Simple alert</button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    <button id="flot" type="button" class="btn btn-primary">Flot alert</button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    <button id="input" type="button" class="btn btn-primary">Input</button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    <button id="confirm" type="button" class="btn btn-primary">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $('#simple').click(function () {
+        new Alerts().alert('#container', 'Simple Alert', 'Ok', function () {
+            alert('Callbak probability')
+        });
+    });
+
+    $('#flot').click(function () {
+        new Alerts().flotAlert('green', 'white', 'Flot alert', 4000, 'top', 'left', function () {
+            alert('Callbak probability')
+        });
+    });
+
+    $('#input').click(function () {
+        new Alerts().input('#container', 'Input', 'text', 'OK', 'Decline', function (res) {
+            alert('Result callbak is : ' + res);
+        });
+    });
+
+    $('#confirm').click(function () {
+
+        new Alerts().confirm('#container', 'Confirm', 'OK', 'Decline', function (res) {
+            alert('Result callbak is : ' + res);
+        })
+    });
+</script>
+
+</html>
